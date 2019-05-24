@@ -1,0 +1,45 @@
+.tab-view {
+  border: 1px solid #ddd;
+  border-radius: 20px;
+  min-width: 500px;
+  min-height: 400px;
+
+
+  .tabs {
+    display: flex;
+    justify-content: space-between;
+    padding: 1em;
+
+    .tab {
+      min-width: 200px;
+      margin: 0 1em;
+      border-radius: 10px;
+      box-shadow: 1px 1px 10px 10px rgba(0,0,0,.1);
+      cursor: pointer;
+      display: grid;
+      grid-template-rows: 20px 20px;
+      align-items: center;
+      align-content: center;
+      border: 1px solid #ddd;
+      padding: 0.5em;
+      height: 80px;
+      background: white;
+      color: black;
+
+      &.active {
+        background: #0c0b95;
+        color: white;
+      }
+
+      h3, h5 {
+        text-align: left;
+        margin: 0;
+      }
+    }
+  }
+
+  &__content {
+    border-top: 1px solid #ddd;
+    padding: 1em;
+  }
+}
