@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import TripTabView from "./TripTabView";
+import TravelChecklist from "./TravelChecklist";
 
 const tabs = [
   {
@@ -23,6 +24,59 @@ const tabs = [
 
 const data = [];
 
+
+const checklistItems = [
+  {
+    id: 1,
+    name: 'Do you have a valid passport',
+    requiresFiles: true
+  },
+  {
+    id: 2,
+    name: 'Do you have a valid visa',
+    requiresFiles: false
+  }
+];
+
+const trips = [
+  {
+    id: 'jasd',
+    checklistItems
+  },
+  {
+    id: 'jad',
+    checklistItems: [
+      ...checklistItems,
+
+      {
+        id: 3,
+        name: 'Do you have a valid yellow fever card',
+        selection: true,
+        requiresFiles: false
+      }
+    ]
+  },
+  {
+    id: 'akljv',
+    checklistItems: [
+      ...checklistItems,
+      {
+        id: 3,
+        name: 'Do you have a valid green fever card',
+        requiresFiles: false
+      },
+      {
+        id: 4,
+        name: 'Do you have a valid pink fever card',
+        requiresFiles: false
+      }
+    ]
+  },
+  {
+    id: 'jad',
+    checklistItems
+  },
+];
 const onTabChanged = (index) => {
 
 };
@@ -31,10 +85,11 @@ function App() {
   return (
     <div className="App">
       <TripTabView tabs={tabs} current={3} onTabChanged={onTabChanged}>
-        <div> This is the first tab</div>
-        <div> This is the second tab </div>
-        <div> This is the third trip tab </div>
-        <div> This is the fourth tab </div>
+        {
+          trips.map(trip => (
+            <TravelChecklist checklistItems={trip.checklistItems} key={trip.id} tripId={trip.id}/>
+          ))
+        }
       </TripTabView>
     </div>
   );

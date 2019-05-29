@@ -1,0 +1,74 @@
+.checklist-item {
+  .title {
+    .number {
+      width: 30px;
+      height: 30px;
+      border: 1px solid #536fcc;
+      border-radius: 50%;
+      display: inline-flex;
+      margin-right: 20px;
+      align-items: center;
+      text-align: center;
+      justify-content: center;
+    }
+  }
+
+  .radio-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, auto);
+    justify-content: start;
+
+    .radio-button {
+      width: auto;
+      padding: 0.5em 1em;
+      border: 1px solid #0c0b95;
+      display: inline-flex;
+      align-items: center;
+
+      .input {
+        border-radius: 50%;
+        background: white;
+        width: 20px;
+        height: 20px;
+        cursor: pointer;
+        position: relative;
+        border: 1px solid #ccc;
+        box-shadow: 1px 1px 1px 1px rgba(0,0,0,.1);
+
+        &.checked {
+          &:before {
+            position: absolute;
+            border-radius:50%;
+            content: '';
+            background: #0c0b95;
+            width: 10px;
+            height: 10px;
+            z-index: 10;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+
+      label {
+        margin-right: 10px;
+      }
+
+      &:nth-child(2){
+        border-right: none;
+        border-left: none;
+      }
+
+      &:first-child {
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+      }
+
+      &:last-child {
+        border-bottom-right-radius: 10px;
+        border-top-right-radius: 10px;
+      }
+    }
+  }
+}
