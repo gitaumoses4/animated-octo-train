@@ -1,39 +1,13 @@
-import React, { Component } from 'react';
-import './ChecklistItem.scss';
+import React from 'react';
+import RadioButtonChecklistItem from "../RadioButtonChecklistItem";
 
-class ChecklistItem extends Component {
-
-  state = {
-
-  };
-
-
-  renderButton = (name, label, value) => {
-    return (
-      <div className="radio-button">
-        <label htmlFor={name}>{label}</label>
-        <div className={`input ${value ? 'checked': ''}`}
-             onClick={() => {
-          this.setState((prevState) => ({
-              ...prevState,
-              [name]: !prevState[name]
-            }))
-        }} />
-      </div>
-    )
-  };
-
+class ChecklistItem extends React.Component{
   render(){
     const { checklistItem, checklistItem: { requiresFiles }, number } = this.props;
-    const { yes, no, notApplicable } = this.state;
     return (
       <div className="checklist-item">
         <p className="title"><span className="number">{number}</span> {checklistItem.name}</p>
-        <div className="radio-buttons">
-          {this.renderButton('yes', 'Yes', yes)}
-          {this.renderButton('no', 'No', no)}
-          {this.renderButton('notApplicable', 'Not Applicable', notApplicable)}
-        </div>
+        <RadioButtonChecklistItem checklistItem={checklistItem}/>
         { requiresFiles && (
           <div>
             This requires files

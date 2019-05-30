@@ -1,0 +1,31 @@
+.input-radio-button {
+  border-radius: 50%;
+  background: white;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  position: relative;
+  border: 1px solid #ccc;
+  box-shadow: 1px 1px 1px 1px rgba(0,0,0,.1);
+
+  &:before {
+    position: absolute;
+    border-radius:50%;
+    content: '';
+    background: #0c0b95;
+    width: 10px;
+    height: 10px;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: all 0.5s;
+  }
+  &.checked {
+    border: 1px solid #0c0b95;
+
+    &:before {
+      transform: translate(-50%, -50%) scale(1);
+    }
+  }
+}

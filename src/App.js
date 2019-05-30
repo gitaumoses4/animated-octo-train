@@ -51,7 +51,7 @@ const trips = [
       {
         id: 3,
         name: 'Do you have a valid yellow fever card',
-        selection: true,
+        choice: 'yes',
         requiresFiles: false
       }
     ]
@@ -68,7 +68,8 @@ const trips = [
       {
         id: 4,
         name: 'Do you have a valid pink fever card',
-        requiresFiles: false
+        requiresFiles: false,
+        choice: 'notApplicable'
       }
     ]
   },
